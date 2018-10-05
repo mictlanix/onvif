@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Mictlanix.DotNet.OnvifClient</id>
+    <version>0.0.1</version>
+    <title>Mictlanix ONVIF Client</title>
+    <authors>Eddy Zavaleta</authors>
+    <owners/>
+    <licenseUrl>https://github.com/mictlanix/onvif/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/mictlanix/onvif</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A lightweight ONVIF Client library.</description>
+    <releaseNotes>First release.</releaseNotes>
+    <copyright>Copyright © 2018 Mictlanix SAS de CV</copyright>
+    <tags>ipcam onvif ptz</tags>
+    <dependencies>
+      <dependency id="System.ServiceModel.Http" version="4.5.3" />
+    </dependencies>
+  </metadata>
+  <files>
+	<file src="src/bin/Release/netstandard2.0/Mictlanix.DotNet.OnvifClient.dll" target="lib/netstandard2.0" />
+  </files>
+</package>
