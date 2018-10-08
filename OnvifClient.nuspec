@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Mictlanix.DotNet.OnvifClient</id>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <title>Mictlanix ONVIF Client</title>
     <authors>Eddy Zavaleta</authors>
     <owners/>
