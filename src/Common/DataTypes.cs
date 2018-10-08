@@ -17812,4 +17812,1409 @@ namespace Mictlanix.DotNet.Onvif.Common {
 			}
 		}
 	}
+
+
+
+
+
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class ImagingStatus20Extension {
+
+		private System.Xml.Linq.XElement [] anyField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlAnyElementAttribute (Order = 0)]
+		public System.Xml.Linq.XElement [] Any {
+			get {
+				return this.anyField;
+			}
+			set {
+				this.anyField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class FocusStatus20Extension {
+
+		private System.Xml.Linq.XElement [] anyField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlAnyElementAttribute (Order = 0)]
+		public System.Xml.Linq.XElement [] Any {
+			get {
+				return this.anyField;
+			}
+			set {
+				this.anyField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class FocusStatus20 {
+
+		private float positionField;
+
+		private MoveStatus moveStatusField;
+
+		private string errorField;
+
+		private FocusStatus20Extension extensionField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 0)]
+		public float Position {
+			get {
+				return this.positionField;
+			}
+			set {
+				this.positionField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public MoveStatus MoveStatus {
+			get {
+				return this.moveStatusField;
+			}
+			set {
+				this.moveStatusField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 2)]
+		public string Error {
+			get {
+				return this.errorField;
+			}
+			set {
+				this.errorField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 3)]
+		public FocusStatus20Extension Extension {
+			get {
+				return this.extensionField;
+			}
+			set {
+				this.extensionField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class ImagingStatus20 {
+
+		private FocusStatus20 focusStatus20Field;
+
+		private ImagingStatus20Extension extensionField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 0)]
+		public FocusStatus20 FocusStatus20 {
+			get {
+				return this.focusStatus20Field;
+			}
+			set {
+				this.focusStatus20Field = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public ImagingStatus20Extension Extension {
+			get {
+				return this.extensionField;
+			}
+			set {
+				this.extensionField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class ContinuousFocusOptions {
+
+		private FloatRange speedField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 0)]
+		public FloatRange Speed {
+			get {
+				return this.speedField;
+			}
+			set {
+				this.speedField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class RelativeFocusOptions20 {
+
+		private FloatRange distanceField;
+
+		private FloatRange speedField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 0)]
+		public FloatRange Distance {
+			get {
+				return this.distanceField;
+			}
+			set {
+				this.distanceField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public FloatRange Speed {
+			get {
+				return this.speedField;
+			}
+			set {
+				this.speedField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class AbsoluteFocusOptions {
+
+		private FloatRange positionField;
+
+		private FloatRange speedField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 0)]
+		public FloatRange Position {
+			get {
+				return this.positionField;
+			}
+			set {
+				this.positionField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public FloatRange Speed {
+			get {
+				return this.speedField;
+			}
+			set {
+				this.speedField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class MoveOptions20 {
+
+		private AbsoluteFocusOptions absoluteField;
+
+		private RelativeFocusOptions20 relativeField;
+
+		private ContinuousFocusOptions continuousField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 0)]
+		public AbsoluteFocusOptions Absolute {
+			get {
+				return this.absoluteField;
+			}
+			set {
+				this.absoluteField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public RelativeFocusOptions20 Relative {
+			get {
+				return this.relativeField;
+			}
+			set {
+				this.relativeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 2)]
+		public ContinuousFocusOptions Continuous {
+			get {
+				return this.continuousField;
+			}
+			set {
+				this.continuousField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class ContinuousFocus {
+
+		private float speedField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 0)]
+		public float Speed {
+			get {
+				return this.speedField;
+			}
+			set {
+				this.speedField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class RelativeFocus {
+
+		private float distanceField;
+
+		private float speedField;
+
+		private bool speedFieldSpecified;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 0)]
+		public float Distance {
+			get {
+				return this.distanceField;
+			}
+			set {
+				this.distanceField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public float Speed {
+			get {
+				return this.speedField;
+			}
+			set {
+				this.speedField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlIgnoreAttribute ()]
+		public bool SpeedSpecified {
+			get {
+				return this.speedFieldSpecified;
+			}
+			set {
+				this.speedFieldSpecified = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class AbsoluteFocus {
+
+		private float positionField;
+
+		private float speedField;
+
+		private bool speedFieldSpecified;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 0)]
+		public float Position {
+			get {
+				return this.positionField;
+			}
+			set {
+				this.positionField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public float Speed {
+			get {
+				return this.speedField;
+			}
+			set {
+				this.speedField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlIgnoreAttribute ()]
+		public bool SpeedSpecified {
+			get {
+				return this.speedFieldSpecified;
+			}
+			set {
+				this.speedFieldSpecified = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class FocusMove {
+
+		private AbsoluteFocus absoluteField;
+
+		private RelativeFocus relativeField;
+
+		private ContinuousFocus continuousField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 0)]
+		public AbsoluteFocus Absolute {
+			get {
+				return this.absoluteField;
+			}
+			set {
+				this.absoluteField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public RelativeFocus Relative {
+			get {
+				return this.relativeField;
+			}
+			set {
+				this.relativeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 2)]
+		public ContinuousFocus Continuous {
+			get {
+				return this.continuousField;
+			}
+			set {
+				this.continuousField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class ImagingOptions20Extension4 {
+
+		private System.Xml.Linq.XElement [] anyField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlAnyElementAttribute (Namespace = "http://www.onvif.org/ver10/schema", Order = 0)]
+		public System.Xml.Linq.XElement [] Any {
+			get {
+				return this.anyField;
+			}
+			set {
+				this.anyField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class NoiseReductionOptions {
+
+		private bool levelField;
+
+		private System.Xml.Linq.XElement [] anyField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 0)]
+		public bool Level {
+			get {
+				return this.levelField;
+			}
+			set {
+				this.levelField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlAnyElementAttribute (Order = 1)]
+		public System.Xml.Linq.XElement [] Any {
+			get {
+				return this.anyField;
+			}
+			set {
+				this.anyField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class DefoggingOptions {
+
+		private string [] modeField;
+
+		private bool levelField;
+
+		private System.Xml.Linq.XElement [] anyField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute ("Mode", Order = 0)]
+		public string [] Mode {
+			get {
+				return this.modeField;
+			}
+			set {
+				this.modeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public bool Level {
+			get {
+				return this.levelField;
+			}
+			set {
+				this.levelField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlAnyElementAttribute (Order = 2)]
+		public System.Xml.Linq.XElement [] Any {
+			get {
+				return this.anyField;
+			}
+			set {
+				this.anyField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class ToneCompensationOptions {
+
+		private string [] modeField;
+
+		private bool levelField;
+
+		private System.Xml.Linq.XElement [] anyField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute ("Mode", Order = 0)]
+		public string [] Mode {
+			get {
+				return this.modeField;
+			}
+			set {
+				this.modeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public bool Level {
+			get {
+				return this.levelField;
+			}
+			set {
+				this.levelField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlAnyElementAttribute (Order = 2)]
+		public System.Xml.Linq.XElement [] Any {
+			get {
+				return this.anyField;
+			}
+			set {
+				this.anyField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class ImagingOptions20Extension3 {
+
+		private ToneCompensationOptions toneCompensationOptionsField;
+
+		private DefoggingOptions defoggingOptionsField;
+
+		private NoiseReductionOptions noiseReductionOptionsField;
+
+		private ImagingOptions20Extension4 extensionField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 0)]
+		public ToneCompensationOptions ToneCompensationOptions {
+			get {
+				return this.toneCompensationOptionsField;
+			}
+			set {
+				this.toneCompensationOptionsField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public DefoggingOptions DefoggingOptions {
+			get {
+				return this.defoggingOptionsField;
+			}
+			set {
+				this.defoggingOptionsField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 2)]
+		public NoiseReductionOptions NoiseReductionOptions {
+			get {
+				return this.noiseReductionOptionsField;
+			}
+			set {
+				this.noiseReductionOptionsField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 3)]
+		public ImagingOptions20Extension4 Extension {
+			get {
+				return this.extensionField;
+			}
+			set {
+				this.extensionField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class IrCutFilterAutoAdjustmentOptionsExtension {
+
+		private System.Xml.Linq.XElement [] anyField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlAnyElementAttribute (Namespace = "http://www.onvif.org/ver10/schema", Order = 0)]
+		public System.Xml.Linq.XElement [] Any {
+			get {
+				return this.anyField;
+			}
+			set {
+				this.anyField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class IrCutFilterAutoAdjustmentOptions {
+
+		private string [] boundaryTypeField;
+
+		private bool boundaryOffsetField;
+
+		private bool boundaryOffsetFieldSpecified;
+
+		private DurationRange responseTimeRangeField;
+
+		private IrCutFilterAutoAdjustmentOptionsExtension extensionField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute ("BoundaryType", Order = 0)]
+		public string [] BoundaryType {
+			get {
+				return this.boundaryTypeField;
+			}
+			set {
+				this.boundaryTypeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public bool BoundaryOffset {
+			get {
+				return this.boundaryOffsetField;
+			}
+			set {
+				this.boundaryOffsetField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlIgnoreAttribute ()]
+		public bool BoundaryOffsetSpecified {
+			get {
+				return this.boundaryOffsetFieldSpecified;
+			}
+			set {
+				this.boundaryOffsetFieldSpecified = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 2)]
+		public DurationRange ResponseTimeRange {
+			get {
+				return this.responseTimeRangeField;
+			}
+			set {
+				this.responseTimeRangeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 3)]
+		public IrCutFilterAutoAdjustmentOptionsExtension Extension {
+			get {
+				return this.extensionField;
+			}
+			set {
+				this.extensionField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class ImagingOptions20Extension2 {
+
+		private IrCutFilterAutoAdjustmentOptions irCutFilterAutoAdjustmentField;
+
+		private ImagingOptions20Extension3 extensionField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 0)]
+		public IrCutFilterAutoAdjustmentOptions IrCutFilterAutoAdjustment {
+			get {
+				return this.irCutFilterAutoAdjustmentField;
+			}
+			set {
+				this.irCutFilterAutoAdjustmentField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public ImagingOptions20Extension3 Extension {
+			get {
+				return this.extensionField;
+			}
+			set {
+				this.extensionField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class ImageStabilizationOptionsExtension {
+
+		private System.Xml.Linq.XElement [] anyField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlAnyElementAttribute (Order = 0)]
+		public System.Xml.Linq.XElement [] Any {
+			get {
+				return this.anyField;
+			}
+			set {
+				this.anyField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class ImageStabilizationOptions {
+
+		private ImageStabilizationMode [] modeField;
+
+		private FloatRange levelField;
+
+		private ImageStabilizationOptionsExtension extensionField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute ("Mode", Order = 0)]
+		public ImageStabilizationMode [] Mode {
+			get {
+				return this.modeField;
+			}
+			set {
+				this.modeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public FloatRange Level {
+			get {
+				return this.levelField;
+			}
+			set {
+				this.levelField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 2)]
+		public ImageStabilizationOptionsExtension Extension {
+			get {
+				return this.extensionField;
+			}
+			set {
+				this.extensionField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class ImagingOptions20Extension {
+
+		private System.Xml.Linq.XElement [] anyField;
+
+		private ImageStabilizationOptions imageStabilizationField;
+
+		private ImagingOptions20Extension2 extensionField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlAnyElementAttribute (Order = 0)]
+		public System.Xml.Linq.XElement [] Any {
+			get {
+				return this.anyField;
+			}
+			set {
+				this.anyField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public ImageStabilizationOptions ImageStabilization {
+			get {
+				return this.imageStabilizationField;
+			}
+			set {
+				this.imageStabilizationField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 2)]
+		public ImagingOptions20Extension2 Extension {
+			get {
+				return this.extensionField;
+			}
+			set {
+				this.extensionField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class WhiteBalanceOptions20Extension {
+
+		private System.Xml.Linq.XElement [] anyField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlAnyElementAttribute (Order = 0)]
+		public System.Xml.Linq.XElement [] Any {
+			get {
+				return this.anyField;
+			}
+			set {
+				this.anyField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class WhiteBalanceOptions20 {
+
+		private WhiteBalanceMode [] modeField;
+
+		private FloatRange yrGainField;
+
+		private FloatRange ybGainField;
+
+		private WhiteBalanceOptions20Extension extensionField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute ("Mode", Order = 0)]
+		public WhiteBalanceMode [] Mode {
+			get {
+				return this.modeField;
+			}
+			set {
+				this.modeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public FloatRange YrGain {
+			get {
+				return this.yrGainField;
+			}
+			set {
+				this.yrGainField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 2)]
+		public FloatRange YbGain {
+			get {
+				return this.ybGainField;
+			}
+			set {
+				this.ybGainField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 3)]
+		public WhiteBalanceOptions20Extension Extension {
+			get {
+				return this.extensionField;
+			}
+			set {
+				this.extensionField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class WideDynamicRangeOptions20 {
+
+		private WideDynamicMode [] modeField;
+
+		private FloatRange levelField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute ("Mode", Order = 0)]
+		public WideDynamicMode [] Mode {
+			get {
+				return this.modeField;
+			}
+			set {
+				this.modeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public FloatRange Level {
+			get {
+				return this.levelField;
+			}
+			set {
+				this.levelField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class FocusOptions20Extension {
+
+		private System.Xml.Linq.XElement [] anyField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlAnyElementAttribute (Order = 0)]
+		public System.Xml.Linq.XElement [] Any {
+			get {
+				return this.anyField;
+			}
+			set {
+				this.anyField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class FocusOptions20 {
+
+		private AutoFocusMode [] autoFocusModesField;
+
+		private FloatRange defaultSpeedField;
+
+		private FloatRange nearLimitField;
+
+		private FloatRange farLimitField;
+
+		private FocusOptions20Extension extensionField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute ("AutoFocusModes", Order = 0)]
+		public AutoFocusMode [] AutoFocusModes {
+			get {
+				return this.autoFocusModesField;
+			}
+			set {
+				this.autoFocusModesField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public FloatRange DefaultSpeed {
+			get {
+				return this.defaultSpeedField;
+			}
+			set {
+				this.defaultSpeedField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 2)]
+		public FloatRange NearLimit {
+			get {
+				return this.nearLimitField;
+			}
+			set {
+				this.nearLimitField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 3)]
+		public FloatRange FarLimit {
+			get {
+				return this.farLimitField;
+			}
+			set {
+				this.farLimitField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 4)]
+		public FocusOptions20Extension Extension {
+			get {
+				return this.extensionField;
+			}
+			set {
+				this.extensionField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class ExposureOptions20 {
+
+		private ExposureMode [] modeField;
+
+		private ExposurePriority [] priorityField;
+
+		private FloatRange minExposureTimeField;
+
+		private FloatRange maxExposureTimeField;
+
+		private FloatRange minGainField;
+
+		private FloatRange maxGainField;
+
+		private FloatRange minIrisField;
+
+		private FloatRange maxIrisField;
+
+		private FloatRange exposureTimeField;
+
+		private FloatRange gainField;
+
+		private FloatRange irisField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute ("Mode", Order = 0)]
+		public ExposureMode [] Mode {
+			get {
+				return this.modeField;
+			}
+			set {
+				this.modeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute ("Priority", Order = 1)]
+		public ExposurePriority [] Priority {
+			get {
+				return this.priorityField;
+			}
+			set {
+				this.priorityField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 2)]
+		public FloatRange MinExposureTime {
+			get {
+				return this.minExposureTimeField;
+			}
+			set {
+				this.minExposureTimeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 3)]
+		public FloatRange MaxExposureTime {
+			get {
+				return this.maxExposureTimeField;
+			}
+			set {
+				this.maxExposureTimeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 4)]
+		public FloatRange MinGain {
+			get {
+				return this.minGainField;
+			}
+			set {
+				this.minGainField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 5)]
+		public FloatRange MaxGain {
+			get {
+				return this.maxGainField;
+			}
+			set {
+				this.maxGainField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 6)]
+		public FloatRange MinIris {
+			get {
+				return this.minIrisField;
+			}
+			set {
+				this.minIrisField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 7)]
+		public FloatRange MaxIris {
+			get {
+				return this.maxIrisField;
+			}
+			set {
+				this.maxIrisField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 8)]
+		public FloatRange ExposureTime {
+			get {
+				return this.exposureTimeField;
+			}
+			set {
+				this.exposureTimeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 9)]
+		public FloatRange Gain {
+			get {
+				return this.gainField;
+			}
+			set {
+				this.gainField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 10)]
+		public FloatRange Iris {
+			get {
+				return this.irisField;
+			}
+			set {
+				this.irisField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class BacklightCompensationOptions20 {
+
+		private BacklightCompensationMode [] modeField;
+
+		private FloatRange levelField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute ("Mode", Order = 0)]
+		public BacklightCompensationMode [] Mode {
+			get {
+				return this.modeField;
+			}
+			set {
+				this.modeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public FloatRange Level {
+			get {
+				return this.levelField;
+			}
+			set {
+				this.levelField = value;
+			}
+		}
+	}
+
+	/// <remarks/>
+	[System.CodeDom.Compiler.GeneratedCodeAttribute ("dotnet-svcutil", "1.0.3")]
+	[System.Diagnostics.DebuggerStepThroughAttribute ()]
+	[System.Xml.Serialization.XmlTypeAttribute (Namespace = "http://www.onvif.org/ver10/schema")]
+	public partial class ImagingOptions20 {
+
+		private BacklightCompensationOptions20 backlightCompensationField;
+
+		private FloatRange brightnessField;
+
+		private FloatRange colorSaturationField;
+
+		private FloatRange contrastField;
+
+		private ExposureOptions20 exposureField;
+
+		private FocusOptions20 focusField;
+
+		private IrCutFilterMode [] irCutFilterModesField;
+
+		private FloatRange sharpnessField;
+
+		private WideDynamicRangeOptions20 wideDynamicRangeField;
+
+		private WhiteBalanceOptions20 whiteBalanceField;
+
+		private ImagingOptions20Extension extensionField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 0)]
+		public BacklightCompensationOptions20 BacklightCompensation {
+			get {
+				return this.backlightCompensationField;
+			}
+			set {
+				this.backlightCompensationField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 1)]
+		public FloatRange Brightness {
+			get {
+				return this.brightnessField;
+			}
+			set {
+				this.brightnessField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 2)]
+		public FloatRange ColorSaturation {
+			get {
+				return this.colorSaturationField;
+			}
+			set {
+				this.colorSaturationField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 3)]
+		public FloatRange Contrast {
+			get {
+				return this.contrastField;
+			}
+			set {
+				this.contrastField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 4)]
+		public ExposureOptions20 Exposure {
+			get {
+				return this.exposureField;
+			}
+			set {
+				this.exposureField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 5)]
+		public FocusOptions20 Focus {
+			get {
+				return this.focusField;
+			}
+			set {
+				this.focusField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute ("IrCutFilterModes", Order = 6)]
+		public IrCutFilterMode [] IrCutFilterModes {
+			get {
+				return this.irCutFilterModesField;
+			}
+			set {
+				this.irCutFilterModesField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 7)]
+		public FloatRange Sharpness {
+			get {
+				return this.sharpnessField;
+			}
+			set {
+				this.sharpnessField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 8)]
+		public WideDynamicRangeOptions20 WideDynamicRange {
+			get {
+				return this.wideDynamicRangeField;
+			}
+			set {
+				this.wideDynamicRangeField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 9)]
+		public WhiteBalanceOptions20 WhiteBalance {
+			get {
+				return this.whiteBalanceField;
+			}
+			set {
+				this.whiteBalanceField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute (Order = 10)]
+		public ImagingOptions20Extension Extension {
+			get {
+				return this.extensionField;
+			}
+			set {
+				this.extensionField = value;
+			}
+		}
+	}
 }

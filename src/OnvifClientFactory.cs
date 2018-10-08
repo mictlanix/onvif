@@ -4,6 +4,7 @@ using System.ServiceModel.Channels;
 using System.Threading.Tasks;
 using Mictlanix.DotNet.Onvif.Common;
 using Mictlanix.DotNet.Onvif.Device;
+using Mictlanix.DotNet.Onvif.Imaging;
 using Mictlanix.DotNet.Onvif.Media;
 using Mictlanix.DotNet.Onvif.Ptz;
 using Mictlanix.DotNet.Onvif.Security;
@@ -88,6 +89,27 @@ namespace Mictlanix.DotNet.Onvif {
 			await ptz.OpenAsync ();
 
 			return ptz;
+		}
+
+		public static async Task<ImagingClient> CreateImagingClientAsync (string host, string username, string password)
+		{
+			var device = await CreateDeviceClientAsync (host, username, password);
+			var caps = await device.GetCapabilitiesAsync (new CapabilityCategory [] { CapabilityCategory.Imaging });
+
+			return await CreateImagingClientAsync (new Uri (caps.Capabilities.Imaging.XAddr), username, password);
+		}
+
+		public static async Task<ImagingClient> CreateImagingClientAsync (Uri uri, string username, string password)
+		{
+			var binding = CreateBinding ();
+			var imaging = new ImagingClient (binding, new EndpointAddress (uri));
+
+			imaging.ChannelFactory.Endpoint.EndpointBehaviors.Add (new SoapSecurityHeaderBehavior (username, password));
+
+			// Connectivity Test
+			await imaging.OpenAsync ();
+
+			return imaging;
 		}
 	}
 }

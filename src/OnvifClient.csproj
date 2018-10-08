@@ -20,20 +20,11 @@
     <Folder Include="Ptz\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Common\AnalyticsDeviceEngineConfigurationExtension.cs" />
-    <Compile Remove="ServiceReference1\Reference.cs" />
-    <Compile Remove="ServiceReference3\Reference.cs" />
-    <Compile Remove="ServiceReference1\Reference.cs" />
-    <Compile Remove="ServiceReference2\Reference.cs" />
-    <Compile Remove="ServiceReference3\Reference.cs" />
-    <Compile Remove="ServiceReference1\Reference.cs" />
-    <Compile Remove="ServiceReference2\Reference.cs" />
-    <Compile Remove="ServiceReference3\Reference.cs" />
-    <Compile Remove="ServiceReference1\Reference.cs" />
-    <Compile Remove="ServiceReference3\Reference.cs" />
-    <Compile Remove="ServiceReference1\Reference.cs" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.5.3" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.ServiceModel.Http" Version="4.5.3" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.4.*" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.4.*" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.4.*" />
   </ItemGroup>
 </Project>

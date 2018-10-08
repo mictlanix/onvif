@@ -19,10 +19,12 @@ namespace Mictlanix.DotNet.Onvif.Tests {
 			var device = await OnvifClientFactory.CreateDeviceClientAsync (host, username, password);
 			var media = await OnvifClientFactory.CreateMediaClientAsync (host, username, password);
 			var ptz = await OnvifClientFactory.CreatePTZClientAsync (host, username, password);
+			var imaging = await OnvifClientFactory.CreateImagingClientAsync (host, username, password);
 			var caps = await device.GetCapabilitiesAsync (new CapabilityCategory[] { CapabilityCategory.All });
 			bool absolute_move = false;
 			bool relative_move = false;
 			bool continuous_move = false;
+			bool focus = false;
 
 			Console.WriteLine ("Capabilities");
 
@@ -60,11 +62,126 @@ namespace Mictlanix.DotNet.Onvif.Tests {
 					Console.WriteLine ($"\tPan Limits: [{pan.Min}, {pan.Max}] Tilt Limits: [{tilt.Min}, {tilt.Max}] Tilt Limits: [{zoom.Min}, {zoom.Max}]");
 				}
 			}
+			
+			var configs  = await ptz.GetConfigurationsAsync ();
 
-			var status = await ptz.GetStatusAsync (profile_token);
+			foreach (var config in configs.PTZConfiguration) {
+				Console.WriteLine ($"PTZ Configuration: {config.token}");
+			}
+			
+			var video_sources = await media.GetVideoSourcesAsync ();
+			string vsource_token = null;
 
-			Console.WriteLine ($"Position: [{status.Position.PanTilt.x}, {status.Position.PanTilt.y}, {status.Position.Zoom.x}]");
-			Console.WriteLine ($"Pan/Tilt Status: {status.MoveStatus.PanTilt} Zoom Status: {status.MoveStatus.Zoom}");
+			foreach (var source in video_sources.VideoSources) {
+				Console.WriteLine ($"Video Source: {source.token}");
+
+				if (vsource_token == null) {
+					vsource_token = source.token;
+					focus = source.Imaging.Focus != null;
+				}
+				
+				Console.WriteLine ($"\tFramerate: {source.Framerate}");
+				Console.WriteLine ($"\tResolution: {source.Resolution.Width}x{source.Resolution.Height}");
+
+				Console.WriteLine ($"\tFocus Settings");
+
+				if (source.Imaging.Focus == null) {
+					Console.WriteLine ($"\t\tNone");
+				} else {
+					Console.WriteLine ($"\t\tMode: {source.Imaging.Focus.AutoFocusMode}");
+					Console.WriteLine ($"\t\tNear Limit: {source.Imaging.Focus.NearLimit}");
+					Console.WriteLine ($"\t\tFar Limit: {source.Imaging.Focus.FarLimit}");
+					Console.WriteLine ($"\t\tDefault Speed: {source.Imaging.Focus.DefaultSpeed}");
+				}
+
+				Console.WriteLine ($"\tExposure Settings");
+
+				if (source.Imaging.Exposure == null) {
+					Console.WriteLine ($"\t\tNone");
+				} else {
+					Console.WriteLine ($"\t\tMode: {source.Imaging.Exposure.Mode}");
+					Console.WriteLine ($"\t\tMin Iris: {source.Imaging.Exposure.MinIris}");
+					Console.WriteLine ($"\t\tMax Iris: {source.Imaging.Exposure.MaxIris}");
+				}
+
+				Console.WriteLine ($"\tImage Settings");
+
+				var imaging_opts = await imaging.GetOptionsAsync (source.token);
+
+				Console.WriteLine ($"\t\tBrightness: {source.Imaging.Brightness} [{imaging_opts.Brightness.Min}, {imaging_opts.Brightness.Max}]");
+				Console.WriteLine ($"\t\tColor Saturation: {source.Imaging.ColorSaturation} [{imaging_opts.ColorSaturation.Min}, {imaging_opts.ColorSaturation.Max}]");
+				Console.WriteLine ($"\t\tContrast: {source.Imaging.Contrast} [{imaging_opts.Contrast.Min}, {imaging_opts.Contrast.Max}]");
+				Console.WriteLine ($"\t\tSharpness: {source.Imaging.Sharpness} [{imaging_opts.Sharpness.Min}, {imaging_opts.Sharpness.Max}]");
+			}
+
+			if (focus) {
+				Console.WriteLine ($"Focus");
+
+				var image_status = await imaging.GetStatusAsync (vsource_token);
+
+				Console.WriteLine ($"\tStatus");
+
+				Console.WriteLine ($"\t\tPosition: {image_status.FocusStatus20.Position}");
+				Console.WriteLine ($"\t\tStatus: {image_status.FocusStatus20.MoveStatus}");
+				Console.WriteLine ($"\t\tError: {image_status.FocusStatus20.Error}");
+
+				Console.WriteLine ($"\tSetting Focus Mode: Manual");
+
+				await imaging.SetImagingSettingsAsync (vsource_token, new ImagingSettings20 {
+					Focus = new FocusConfiguration20 {
+						AutoFocusMode = AutoFocusMode.MANUAL
+					}
+				}, true);
+			}
+
+			var focus_opts = await imaging.GetMoveOptionsAsync (vsource_token);
+
+			if (focus_opts.Absolute != null) {
+				Console.WriteLine ($"\tMoving Focus Absolute");
+
+				await imaging.MoveAsync (vsource_token, new FocusMove {
+					Absolute = new AbsoluteFocus {
+						Position = 0f,
+						//Speed = 1f,
+						//SpeedSpecified = true
+					}
+				});
+
+				await Task.Delay (500);
+			}
+
+			if (focus_opts.Relative != null) {
+				Console.WriteLine ($"\tMoving Focus Relative");
+
+				await imaging.MoveAsync (vsource_token, new FocusMove {
+					Relative = new RelativeFocus {
+						Distance = 0.2f,
+						//Speed = 1f,
+						//SpeedSpecified = true
+					}
+				});
+
+				await Task.Delay (500);
+			}
+
+			if (focus_opts.Continuous != null) {
+				Console.WriteLine ($"\tMoving Focus Continuous...");
+
+				await imaging.MoveAsync (vsource_token, new FocusMove {
+					Continuous = new ContinuousFocus {
+						Speed = 0.1f
+					}
+				});
+
+				await Task.Delay (500);
+
+				await imaging.StopAsync (vsource_token);
+			}
+
+			var ptz_status = await ptz.GetStatusAsync (profile_token);
+
+			Console.WriteLine ($"Position: [{ptz_status.Position.PanTilt.x}, {ptz_status.Position.PanTilt.y}, {ptz_status.Position.Zoom.x}]");
+			Console.WriteLine ($"Pan/Tilt Status: {ptz_status.MoveStatus.PanTilt} Zoom Status: {ptz_status.MoveStatus.Zoom}");
 
 			if (absolute_move) {
 				Console.WriteLine ($"Absolute Move...");
@@ -89,10 +206,10 @@ namespace Mictlanix.DotNet.Onvif.Tests {
 
 				await Task.Delay (3000);
 
-				status = await ptz.GetStatusAsync (profile_token);
+				ptz_status = await ptz.GetStatusAsync (profile_token);
 
-				Console.WriteLine ($"Position: [{status.Position.PanTilt.x}, {status.Position.PanTilt.y}, {status.Position.Zoom.x}]");
-				Console.WriteLine ($"Pan/Tilt Status: {status.MoveStatus.PanTilt} Zoom Status: {status.MoveStatus.Zoom}");
+				Console.WriteLine ($"Position: [{ptz_status.Position.PanTilt.x}, {ptz_status.Position.PanTilt.y}, {ptz_status.Position.Zoom.x}]");
+				Console.WriteLine ($"Pan/Tilt Status: {ptz_status.MoveStatus.PanTilt} Zoom Status: {ptz_status.MoveStatus.Zoom}");
 			}
 
 			if (relative_move) {
@@ -118,10 +235,10 @@ namespace Mictlanix.DotNet.Onvif.Tests {
 
 				await Task.Delay (3000);
 
-				status = await ptz.GetStatusAsync (profile_token);
+				ptz_status = await ptz.GetStatusAsync (profile_token);
 
-				Console.WriteLine ($"Position: [{status.Position.PanTilt.x}, {status.Position.PanTilt.y}, {status.Position.Zoom.x}]");
-				Console.WriteLine ($"Pan/Tilt Status: {status.MoveStatus.PanTilt} Zoom Status: {status.MoveStatus.Zoom}");
+				Console.WriteLine ($"Position: [{ptz_status.Position.PanTilt.x}, {ptz_status.Position.PanTilt.y}, {ptz_status.Position.Zoom.x}]");
+				Console.WriteLine ($"Pan/Tilt Status: {ptz_status.MoveStatus.PanTilt} Zoom Status: {ptz_status.MoveStatus.Zoom}");
 			}
 
 			if (continuous_move) {
@@ -140,10 +257,10 @@ namespace Mictlanix.DotNet.Onvif.Tests {
 				await Task.Delay (1500);
 				await ptz.StopAsync (profile_token, true, true);
 
-				status = await ptz.GetStatusAsync (profile_token);
+				ptz_status = await ptz.GetStatusAsync (profile_token);
 
-				Console.WriteLine ($"Position: [{status.Position.PanTilt.x}, {status.Position.PanTilt.y}, {status.Position.Zoom.x}]");
-				Console.WriteLine ($"Pan/Tilt Status: {status.MoveStatus.PanTilt} Zoom Status: {status.MoveStatus.Zoom}");
+				Console.WriteLine ($"Position: [{ptz_status.Position.PanTilt.x}, {ptz_status.Position.PanTilt.y}, {ptz_status.Position.Zoom.x}]");
+				Console.WriteLine ($"Pan/Tilt Status: {ptz_status.MoveStatus.PanTilt} Zoom Status: {ptz_status.MoveStatus.Zoom}");
 			}
 
 			var presets = await ptz.GetPresetsAsync (profile_token);
