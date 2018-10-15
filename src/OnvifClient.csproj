@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Mictlanix.DotNet.OnvifClient</AssemblyName>
     <RootNamespace>Mictlanix.DotNet.Onvif</RootNamespace>
-    <ReleaseVersion>0.0.2</ReleaseVersion>
+    <ReleaseVersion>0.0.3</ReleaseVersion>
   </PropertyGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="dotnet-svcutil" Version="1.0.*" />

@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Mictlanix.DotNet.OnvifClient</id>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <title>Mictlanix ONVIF Client</title>
     <authors>Eddy Zavaleta</authors>
     <owners/>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/mictlanix/onvif</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A lightweight ONVIF Client library.</description>
-    <releaseNotes>First release.</releaseNotes>
+    <releaseNotes>PasswordDigest security added.</releaseNotes>
     <copyright>Copyright © 2018 Mictlanix SAS de CV</copyright>
     <tags>ipcam onvif ptz</tags>
     <dependencies>

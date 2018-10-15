@@ -108,10 +108,10 @@ namespace Mictlanix.DotNet.Onvif.Tests {
 
 				var imaging_opts = await imaging.GetOptionsAsync (source.token);
 
-				Console.WriteLine ($"\t\tBrightness: {source.Imaging.Brightness} [{imaging_opts.Brightness.Min}, {imaging_opts.Brightness.Max}]");
-				Console.WriteLine ($"\t\tColor Saturation: {source.Imaging.ColorSaturation} [{imaging_opts.ColorSaturation.Min}, {imaging_opts.ColorSaturation.Max}]");
-				Console.WriteLine ($"\t\tContrast: {source.Imaging.Contrast} [{imaging_opts.Contrast.Min}, {imaging_opts.Contrast.Max}]");
-				Console.WriteLine ($"\t\tSharpness: {source.Imaging.Sharpness} [{imaging_opts.Sharpness.Min}, {imaging_opts.Sharpness.Max}]");
+				Console.WriteLine ($"\t\tBrightness: {source.Imaging.Brightness} [{imaging_opts.Brightness?.Min}, {imaging_opts.Brightness?.Max}]");
+				Console.WriteLine ($"\t\tColor Saturation: {source.Imaging.ColorSaturation} [{imaging_opts.ColorSaturation?.Min}, {imaging_opts.ColorSaturation?.Max}]");
+				Console.WriteLine ($"\t\tContrast: {source.Imaging.Contrast} [{imaging_opts.Contrast?.Min}, {imaging_opts.Contrast?.Max}]");
+				Console.WriteLine ($"\t\tSharpness: {source.Imaging.Sharpness} [{imaging_opts.Sharpness?.Min}, {imaging_opts.Sharpness?.Max}]");
 			}
 
 			if (focus) {
@@ -127,11 +127,18 @@ namespace Mictlanix.DotNet.Onvif.Tests {
 
 				Console.WriteLine ($"\tSetting Focus Mode: Manual");
 
-				await imaging.SetImagingSettingsAsync (vsource_token, new ImagingSettings20 {
-					Focus = new FocusConfiguration20 {
+				var image_settings = await imaging.GetImagingSettingsAsync (vsource_token);
+
+				if (image_settings.Focus == null) {
+					image_settings.Focus = new FocusConfiguration20 {
 						AutoFocusMode = AutoFocusMode.MANUAL
-					}
-				}, true);
+					};
+
+					await imaging.SetImagingSettingsAsync (vsource_token, image_settings, false);
+				} else if (image_settings.Focus.AutoFocusMode != AutoFocusMode.MANUAL) {
+					image_settings.Focus.AutoFocusMode = AutoFocusMode.MANUAL;
+					await imaging.SetImagingSettingsAsync (vsource_token, image_settings, false);
+				}
 			}
 
 			var focus_opts = await imaging.GetMoveOptionsAsync (vsource_token);
@@ -155,7 +162,7 @@ namespace Mictlanix.DotNet.Onvif.Tests {
 
 				await imaging.MoveAsync (vsource_token, new FocusMove {
 					Relative = new RelativeFocus {
-						Distance = 0.2f,
+						Distance = 0.01f,
 						//Speed = 1f,
 						//SpeedSpecified = true
 					}
@@ -169,7 +176,7 @@ namespace Mictlanix.DotNet.Onvif.Tests {
 
 				await imaging.MoveAsync (vsource_token, new FocusMove {
 					Continuous = new ContinuousFocus {
-						Speed = 0.1f
+						Speed = 1f
 					}
 				});
 
